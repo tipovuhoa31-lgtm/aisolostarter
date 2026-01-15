@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Solopreneur - Làm chủ công nghệ. Tự do kinh doanh.</title>
-    <meta name="description" content="Chương trình đào tạo AI Solopreneur - Biến sức mạnh AI thành lợi thế kinh doanh cá nhân.">
+    <title>AI Solopreneur | Master Technology. Build Freedom.</title>
+    <meta name="description" content="Chương trình đào tạo AI Solopreneur - Đẳng cấp kinh doanh cá nhân trong kỷ nguyên trí tuệ nhân tạo.">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,73 +12,100 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --apple-blue: #0071e3;
-            --apple-gray: #86868b;
-            --apple-bg: #000000;
+            --apple-bg: #ffffff;
+            --apple-gray-bg: #f5f5f7;
+            --apple-text: #1d1d1f;
+            --apple-text-secondary: #86868b;
         }
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--apple-bg);
-            color: #f5f5f7;
+            color: var(--apple-text);
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .apple-gradient {
-            background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.7) 100%);
+        /* Smooth Anchor Scroll Padding */
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .apple-header-gradient {
+            background: linear-gradient(180deg, #1d1d1f 0%, #424245 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .blur-nav {
             backdrop-filter: saturate(180%) blur(20px);
-            background: rgba(0, 0, 0, 0.72);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
         }
 
-        .card-shadow:hover {
-            box-shadow: 0 20px 40px rgba(0, 113, 227, 0.15);
+        .soft-card {
+            background: #ffffff;
+            border-radius: 40px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
         }
 
-        .modal-backdrop {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
+        .soft-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 113, 227, 0.1);
         }
 
-        /* Smooth animation for elements */
+        .apple-button {
+            background-color: var(--apple-blue);
+            color: white;
+            border-radius: 980px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .apple-button:hover {
+            background-color: #0077ed;
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 113, 227, 0.2);
+        }
+
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        input:focus {
-            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.2);
+        .section-padding {
+            padding-top: 120px;
+            padding-bottom: 120px;
         }
 
-        @keyframes pulse-soft {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.4; }
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
-        .animate-pulse-soft {
-            animation: pulse-soft 4s infinite;
+        .animate-subtle-float {
+            animation: subtle-float 8s ease-in-out infinite;
         }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3"
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
@@ -86,328 +113,289 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-14">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-14 bg-white/0">
         <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-5 h-5 bg-white rounded-sm rotate-45"></div>
-                <span class="text-[14px] font-semibold tracking-tight">AI SOLOPRENEUR</span>
-            </div>
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-5 h-5 bg-black rounded-sm rotate-45"></div>
+                <span class="text-[16px] font-bold tracking-tighter">AI SOLOPRENEUR</span>
+            </a>
             
-            <div class="hidden md:flex items-center gap-8 text-[12px] text-white/60 font-medium">
-                <a href="#roadmap" class="hover:text-white transition-colors">Lộ trình</a>
-                <a href="#bonuses" class="hover:text-white transition-colors">Quà tặng</a>
-                <a href="#speakers" class="hover:text-white transition-colors">Người hướng dẫn</a>
-                <button onclick="openModal()" class="bg-white text-black px-4 py-1 rounded-full text-[11px] font-bold hover:bg-white/90 transition-all">
+            <div class="hidden md:flex items-center gap-12 text-[12px] text-black/60 font-semibold uppercase tracking-[0.1em]">
+                <a href="#roadmap" class="hover:text-black transition-colors">Lộ trình</a>
+                <a href="#speakers" class="hover:text-black transition-colors">Chuyên gia</a>
+                <a href="#bonuses" class="hover:text-black transition-colors">Đặc quyền</a>
+                <button onclick="openModal()" class="bg-black text-white px-5 py-1.5 rounded-full text-[11px] font-bold hover:bg-black/80 transition-all shadow-lg shadow-black/10">
                     ĐĂNG KÝ
                 </button>
             </div>
 
-            <!-- Mobile Menu Trigger -->
-            <button onclick="openModal()" class="md:hidden bg-white text-black px-3 py-1 rounded-full text-[10px] font-bold">
+            <button onclick="openModal()" class="md:hidden bg-black text-white px-4 py-1.5 rounded-full text-[11px] font-bold">
                 ĐĂNG KÝ
             </button>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-14">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full animate-pulse-soft"></div>
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-white">
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-[15%] left-[10%] w-[600px] h-[600px] bg-blue-50/60 blur-[100px] rounded-full animate-subtle-float"></div>
+            <div class="absolute bottom-[10%] right-[5%] w-[500px] h-[500px] bg-purple-50/40 blur-[100px] rounded-full" style="animation-delay: -4s"></div>
         </div>
 
-        <div class="relative z-10 max-w-5xl mx-auto space-y-8 reveal active">
-            <div class="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-[12px] font-bold tracking-widest text-blue-400 uppercase mb-4">
-                Chương trình đào tạo thực chiến
+        <div class="relative z-10 max-w-6xl mx-auto reveal active">
+            <div class="inline-block px-5 py-2 rounded-full bg-[#f5f5f7] text-[12px] font-bold tracking-[0.2em] text-[#86868b] uppercase mb-12">
+                Building the Future of Solopreneurship
             </div>
             
-            <h1 class="text-5xl md:text-[88px] font-extrabold leading-[1.05] tracking-tight apple-gradient mb-6">
+            <h1 class="text-6xl md:text-[100px] font-black leading-[1] tracking-tighter apple-header-gradient mb-10">
                 Làm chủ công nghệ.<br />
-                <span class="text-white/30">Tự do kinh doanh cùng AI.</span>
+                Tự do kinh doanh.
             </h1>
 
-            <p class="text-lg md:text-2xl text-[#86868b] max-w-2xl mx-auto font-medium leading-relaxed">
-                Biến sức mạnh AI thành doanh nghiệp cá nhân tinh gọn, 
-                thu nhập thụ động và cơ hội đột phá trong kỷ nguyên số.
+            <p class="text-xl md:text-3xl text-[#86868b] max-w-3xl mx-auto font-medium leading-tight mb-16 px-4">
+                Xây dựng doanh nghiệp cá nhân tinh gọn và hiệu quả gấp 10 lần với sức mạnh từ trí tuệ nhân tạo.
             </p>
 
-            <div class="pt-10">
-                <button onclick="openModal()" class="bg-[#0071e3] hover:bg-[#0077ed] text-white px-10 py-4 rounded-full text-[17px] font-semibold transition-all transform hover:scale-[1.02] active:scale-95 shadow-xl shadow-blue-500/20">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                <button onclick="openModal()" class="apple-button px-14 py-5 text-[19px] font-bold">
                     Bắt đầu miễn phí ngay
                 </button>
-                <div class="mt-6 text-[#86868b] text-sm font-medium">
-                    ⚡ Chỉ còn 15 suất ưu đãi cuối cùng
-                </div>
+                <a href="#roadmap" class="text-[#0071e3] font-bold text-[19px] hover:underline flex items-center gap-2 group">
+                    Xem lộ trình 3 ngày <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- ROADMAP SECTION -->
-    <section id="roadmap" class="bg-white text-black py-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-24 reveal">
-                <span class="text-[#0071e3] font-bold uppercase tracking-[0.2em] text-[13px]">Lộ trình 3 ngày</span>
-                <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mt-4">Hành Trình Chinh Phục</h2>
+    <section id="roadmap" class="bg-[#f5f5f7] section-padding px-6 border-y border-black/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-4xl mb-32 reveal">
+                <span class="text-[#0071e3] font-bold uppercase tracking-[0.2em] text-[14px] mb-4 block">Chương trình đào tạo</span>
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter leading-tight">Hành trình 3 ngày chinh phục AI.</h2>
             </div>
 
-            <!-- Day 1 -->
-            <div class="flex flex-col md:flex-row items-center gap-16 mb-32 reveal">
-                <div class="flex-1 space-y-6">
-                    <span class="text-[#0071e3] font-bold tracking-widest text-[14px]">NGÀY 01</span>
-                    <h3 class="text-4xl font-bold leading-tight">AI Content & Video Automation</h3>
-                    <p class="text-xl text-[#86868b] font-medium leading-relaxed">Sản xuất nội dung hàng loạt và xây dựng kênh social tự động hóa 100%.</p>
-                    <ul class="space-y-4 pt-4">
-                        <li class="flex items-start gap-3">
-                            <span class="bg-black text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] flex-shrink-0 mt-1">1</span>
-                            <span class="text-[#424245]">Quy trình tạo 100+ video/tháng không cần lộ mặt.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="bg-black text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] flex-shrink-0 mt-1">2</span>
-                            <span class="text-[#424245]">Khai thác traffic từ Reels, TikTok, Shorts để kiếm tiền.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex-1 w-full bg-[#f5f5f7] rounded-[40px] p-10 border border-black/5 hover:shadow-xl transition-all">
-                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- Card 1 -->
+                <div class="soft-card p-12 flex flex-col h-full reveal">
+                    <div class="w-14 h-14 bg-[#f5f5f7] rounded-2xl flex items-center justify-center mb-10">
+                        <span class="text-black font-black text-2xl">01</span>
                     </div>
-                    <div class="bg-white p-6 rounded-3xl shadow-sm italic text-[#86868b]">
-                        "Biến ý tưởng thành video triệu view chỉ trong vài phút với sức mạnh của Generative AI."
+                    <h3 class="text-3xl font-black mb-6 tracking-tight">AI Content Engine</h3>
+                    <p class="text-[#86868b] text-lg font-medium leading-relaxed flex-grow">
+                        Sản xuất nội dung hàng loạt và xây dựng kênh Social Traffic tự động hóa 100%.
+                    </p>
+                    <div class="mt-10 pt-10 border-t border-gray-50 space-y-4">
+                        <div class="flex items-center gap-3 text-sm font-bold opacity-80">
+                            <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Video Automation Secrets
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-bold opacity-80">
+                            <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Viral Content Systems
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Day 2 -->
-            <div class="flex flex-col md:flex-row-reverse items-center gap-16 mb-32 reveal">
-                <div class="flex-1 space-y-6">
-                    <span class="text-[#0071e3] font-bold tracking-widest text-[14px]">NGÀY 02</span>
-                    <h3 class="text-4xl font-bold leading-tight">AI Agents & Vibe Coding</h3>
-                    <p class="text-xl text-[#86868b] font-medium leading-relaxed">Xây dựng hệ thống tự vận hành và ứng dụng Code bằng AI không cần lập trình.</p>
-                    <ul class="space-y-4 pt-4">
-                        <li class="flex items-start gap-3">
-                            <span class="bg-black text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] flex-shrink-0 mt-1">1</span>
-                            <span class="text-[#424245]">Tạo Landing Page và Phễu bán hàng tự động bằng AI.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="bg-black text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] flex-shrink-0 mt-1">2</span>
-                            <span class="text-[#424245]">Build trợ lý ảo phục vụ khách hàng 24/7.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex-1 w-full bg-[#f5f5f7] rounded-[40px] p-10 border border-black/5 hover:shadow-xl transition-all">
-                    <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <!-- Card 2 -->
+                <div class="soft-card p-12 flex flex-col h-full reveal" style="transition-delay: 150ms;">
+                    <div class="w-14 h-14 bg-[#f5f5f7] rounded-2xl flex items-center justify-center mb-10">
+                        <span class="text-black font-black text-2xl">02</span>
                     </div>
-                    <div class="bg-white p-6 rounded-3xl shadow-sm italic text-[#86868b]">
-                        "Đừng chỉ dùng AI để chat, hãy dùng AI để BUILD sản phẩm thực tế."
+                    <h3 class="text-3xl font-black mb-6 tracking-tight">AI Agents & Coding</h3>
+                    <p class="text-[#86868b] text-lg font-medium leading-relaxed flex-grow">
+                        Tự xây dựng các trợ lý AI cá nhân và thiết lập phễu bán hàng tự vận hành.
+                    </p>
+                    <div class="mt-10 pt-10 border-t border-gray-50 space-y-4">
+                        <div class="flex items-center gap-3 text-sm font-bold opacity-80">
+                            <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> No-code Funnel Builder
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-bold opacity-80">
+                            <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Custom AI Workers
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Day 3 -->
-            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
-                <div class="flex-1 space-y-6">
-                    <span class="text-[#0071e3] font-bold tracking-widest text-[14px]">NGÀY 03</span>
-                    <h3 class="text-4xl font-bold leading-tight">AI Coaching & Community</h3>
-                    <p class="text-xl text-[#86868b] font-medium leading-relaxed">Đóng gói kiến thức thành sản phẩm số và scale doanh nghiệp coaching.</p>
-                    <ul class="space-y-4 pt-4">
-                        <li class="flex items-start gap-3">
-                            <span class="bg-black text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] flex-shrink-0 mt-1">1</span>
-                            <span class="text-[#424245]">Mô hình Solopreneur: Một người vận hành như một công ty.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="bg-black text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] flex-shrink-0 mt-1">2</span>
-                            <span class="text-[#424245]">Chiến lược xây dựng cộng đồng trả phí bền vững.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex-1 w-full bg-[#f5f5f7] rounded-[40px] p-10 border border-black/5 hover:shadow-xl transition-all">
-                    <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <!-- Card 3 -->
+                <div class="soft-card p-12 flex flex-col h-full reveal" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-[#f5f5f7] rounded-2xl flex items-center justify-center mb-10">
+                        <span class="text-black font-black text-2xl">03</span>
                     </div>
-                    <div class="bg-white p-6 rounded-3xl shadow-sm italic text-[#86868b]">
-                        "Xây dựng tầm ảnh hưởng và chuyển đổi thành dòng tiền đều đặn."
+                    <h3 class="text-3xl font-black mb-6 tracking-tight">Scale & Community</h3>
+                    <p class="text-[#86868b] text-lg font-medium leading-relaxed flex-grow">
+                        Đóng gói sản phẩm số và xây dựng cộng đồng trả phí bền vững.
+                    </p>
+                    <div class="mt-10 pt-10 border-t border-gray-50 space-y-4">
+                        <div class="flex items-center gap-3 text-sm font-bold opacity-80">
+                            <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Digital Product Launch
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-bold opacity-80">
+                            <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Membership Economy
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BONUS SECTION -->
-    <section id="bonuses" class="py-32 px-6 bg-black">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20 reveal">
-                <span class="text-blue-500 font-bold uppercase tracking-[0.2em] text-[13px]">Giá trị tặng kèm</span>
-                <h2 class="text-4xl md:text-6xl font-extrabold apple-gradient mt-4">Quà Tặng Đặc Biệt</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-[#1d1d1f] border border-white/10 rounded-[32px] p-8 card-shadow transition-all reveal">
-                    <div class="text-4xl mb-6">🛠️</div>
-                    <h3 class="text-xl font-bold mb-3">AI Tools Stack</h3>
-                    <p class="text-[#86868b]">Hơn 50 công cụ thiết yếu để xây dựng doanh nghiệp AI tinh gọn.</p>
-                </div>
-                <div class="bg-[#1d1d1f] border border-white/10 rounded-[32px] p-8 card-shadow transition-all reveal">
-                    <div class="text-4xl mb-6">⚡</div>
-                    <h3 class="text-xl font-bold mb-3">Automation Templates</h3>
-                    <p class="text-[#86868b]">Các quy trình tự động hóa sẵn sàng áp dụng ngay lập tức vào công việc.</p>
-                </div>
-                <div class="bg-[#1d1d1f] border border-white/10 rounded-[32px] p-8 card-shadow transition-all reveal">
-                    <div class="text-4xl mb-6">🎁</div>
-                    <h3 class="text-xl font-bold mb-3">Free AI Credits</h3>
-                    <p class="text-[#86868b]">Tặng ngẫu nhiên 50 code Click AI Workspace cho học viên may mắn.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SPEAKERS SECTION -->
-    <section id="speakers" class="py-32 px-6 bg-[#f5f5f7] text-black">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20 reveal">
-                <span class="text-[#0071e3] font-bold uppercase tracking-[0.2em] text-[13px]">Đội ngũ dẫn dắt</span>
-                <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mt-4">Người Đồng Hành</h2>
+    <section id="speakers" class="section-padding bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-32 reveal">
+                <span class="text-[#0071e3] font-bold uppercase tracking-[0.2em] text-[13px] mb-4 block">Chuyên gia đồng hành</span>
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter">Những người dẫn dắt bạn.</h2>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
-                <!-- Speaker 1 -->
-                <div class="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-black/5 flex flex-col md:flex-row gap-8 reveal">
-                    <img src="https://i.postimg.cc/3xQb5jD8/Hung.png" alt="Nguyễn Phước Vĩnh Hưng" class="w-full md:w-40 h-52 md:h-40 object-cover rounded-3xl grayscale hover:grayscale-0 transition-all duration-500">
-                    <div class="space-y-4">
-                        <div>
-                            <h3 class="text-2xl font-bold">Vĩnh Hưng</h3>
-                            <p class="text-[#0071e3] font-semibold text-sm">Founder Duhava Technology</p>
-                        </div>
-                        <p class="text-[#424245] text-sm leading-relaxed">Chuyên gia với 500k+ followers về AI & Marketing. Quản trị viên cộng đồng AI 300k+ thành viên.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 mb-24">
+                <!-- Expert 1 -->
+                <div class="group reveal">
+                    <div class="relative overflow-hidden rounded-[48px] aspect-[4/5] mb-10 bg-[#f5f5f7] border border-black/5 shadow-sm">
+                        <img src="https://i.postimg.cc/3xQb5jD8/Hung.png" alt="Vĩnh Hưng" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="px-4">
+                        <h3 class="text-4xl font-black mb-2 tracking-tight">Nguyễn Phước Vĩnh Hưng</h3>
+                        <p class="text-xl text-[#0071e3] font-bold mb-4">Founder Duhava Technology</p>
+                        <p class="text-lg text-[#86868b] font-medium leading-relaxed">Chuyên gia với 500k+ followers về AI & Marketing. Người kiến tạo những quy trình Viral Content tự động hàng đầu.</p>
                     </div>
                 </div>
-                <!-- Speaker 2 -->
-                <div class="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-black/5 flex flex-col md:flex-row gap-8 reveal">
-                    <img src="https://i.postimg.cc/BngWm7wG/Anh-Trung.png" alt="Nguyễn Thành Trung" class="w-full md:w-40 h-52 md:h-40 object-cover rounded-3xl grayscale hover:grayscale-0 transition-all duration-500">
-                    <div class="space-y-4">
-                        <div>
-                            <h3 class="text-2xl font-bold">Thành Trung</h3>
-                            <p class="text-[#0071e3] font-semibold text-sm">CMO ClickAi</p>
-                        </div>
-                        <p class="text-[#424245] text-sm leading-relaxed">Hơn 10 năm kinh nghiệm đào tạo online. Khách mời chuyên gia về AI trên VTV1 và An ninh TV.</p>
+                <!-- Expert 2 -->
+                <div class="group reveal" style="transition-delay: 200ms;">
+                    <div class="relative overflow-hidden rounded-[48px] aspect-[4/5] mb-10 bg-[#f5f5f7] border border-black/5 shadow-sm">
+                        <img src="https://i.postimg.cc/BngWm7wG/Anh-Trung.png" alt="Thành Trung" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="px-4">
+                        <h3 class="text-4xl font-black mb-2 tracking-tight">Nguyễn Thành Trung</h3>
+                        <p class="text-xl text-[#0071e3] font-bold mb-4">CMO ClickAi</p>
+                        <p class="text-lg text-[#86868b] font-medium leading-relaxed">Khách mời chuyên gia về AI trên các kênh truyền hình quốc gia. Hơn 10 năm kinh nghiệm đào tạo thực chiến.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Support Coach -->
-            <div class="bg-white rounded-[40px] p-8 md:p-16 shadow-xl border border-blue-500/10 flex flex-col md:flex-row items-center gap-12 reveal">
-                <div class="relative w-48 h-48 md:w-56 md:h-56 flex-shrink-0">
-                    <div class="absolute inset-0 bg-blue-500/10 rounded-full animate-pulse"></div>
-                    <img src="https://i.postimg.cc/VvYnW6J7/Trang.png" alt="Đoan Trang" class="w-full h-full object-cover rounded-full border-4 border-white relative z-10">
+            <!-- Support Banner -->
+            <div class="bg-[#f5f5f7] rounded-[56px] p-12 md:p-20 flex flex-col md:flex-row items-center gap-16 reveal border border-black/5">
+                <div class="w-56 h-56 md:w-64 md:h-64 flex-shrink-0">
+                    <img src="https://i.postimg.cc/VvYnW6J7/Trang.png" alt="Đoan Trang" class="w-full h-full object-cover rounded-full border-[10px] border-white shadow-2xl">
                 </div>
-                <div class="flex-1 text-center md:text-left space-y-4">
-                    <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-[11px] font-bold uppercase">Coach hỗ trợ 1:1</span>
-                    <h3 class="text-3xl font-extrabold">Đoan Trang</h3>
-                    <p class="text-xl text-[#424245] leading-snug italic">"Hỗ trợ riêng và hướng dẫn thực hành xuyên suốt cho đến khi bạn có kết quả thực tế ngay trong chương trình."</p>
-                    <div class="text-green-600 font-bold flex items-center justify-center md:justify-start gap-2">
-                        <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span> Trực tuyến trong Group Zalo Kín
+                <div class="flex-1 space-y-6 text-center md:text-left">
+                    <span class="bg-blue-600/10 text-blue-600 px-5 py-1.5 rounded-full text-[12px] font-bold uppercase tracking-widest">Support Coach</span>
+                    <h3 class="text-5xl font-black tracking-tight leading-tight">Coach Đoan Trang</h3>
+                    <p class="text-2xl text-[#86868b] font-medium italic leading-snug">
+                        "Chúng tôi không chỉ dạy lý thuyết, chúng tôi đồng hành cùng bạn cho đến khi ra kết quả thực tế."
+                    </p>
+                    <div class="flex items-center gap-4 justify-center md:justify-start">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        <span class="font-bold text-green-600 uppercase text-sm tracking-widest">Support 1:1 qua Zalo Group</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DETAILS SECTION -->
-    <section id="details" class="py-32 px-6 bg-white text-black">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-bold">Chi Tiết Chương Trình</h2>
+    <!-- BONUSES SECTION -->
+    <section id="bonuses" class="section-padding bg-[#f5f5f7] px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-32 reveal">
+                <span class="text-[#86868b] font-bold uppercase tracking-[0.2em] text-[13px] mb-4 block">Hơn cả một khóa học</span>
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter">Đặc quyền dành riêng cho bạn.</h2>
             </div>
 
-            <div class="border border-black/10 rounded-[40px] bg-[#f5f5f7] overflow-hidden reveal">
-                <div class="flex items-center justify-between p-8 border-b border-black/5">
-                    <span class="text-lg font-semibold text-[#86868b]">Thời gian</span>
-                    <span class="text-lg font-bold">19:30 – 21:00</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="soft-card p-12 reveal border-none shadow-sm">
+                    <div class="text-6xl mb-10">🛠️</div>
+                    <h3 class="text-2xl font-black mb-4">AI Mastery Stack</h3>
+                    <p class="text-[#86868b] font-medium leading-relaxed">Bộ sưu tập 100+ công cụ AI tốt nhất giúp tối ưu hóa công việc kinh doanh.</p>
                 </div>
-                <div class="flex items-center justify-between p-8 border-b border-black/5">
-                    <span class="text-lg font-semibold text-[#86868b]">Ngày diễn ra</span>
-                    <span class="text-lg font-bold">05/01 – 07/01</span>
+                <div class="soft-card p-12 reveal border-none shadow-sm" style="transition-delay: 150ms;">
+                    <div class="text-6xl mb-10">📜</div>
+                    <h3 class="text-2xl font-black mb-4">Prompt Mastery</h3>
+                    <p class="text-[#86868b] font-medium leading-relaxed">Thư viện câu lệnh chuẩn giúp bạn điều khiển AI chính xác như một chuyên gia.</p>
                 </div>
-                <div class="flex items-center justify-between p-8 border-b border-black/5">
-                    <span class="text-lg font-semibold text-[#86868b]">Hình thức</span>
-                    <span class="text-lg font-bold">Online qua Zoom</span>
-                </div>
-                <div class="flex items-center justify-between p-8">
-                    <span class="text-lg font-semibold text-[#86868b]">Học phí</span>
-                    <span class="text-lg font-bold text-blue-600">Miễn phí 100%</span>
+                <div class="soft-card p-12 reveal border-none shadow-sm" style="transition-delay: 300ms;">
+                    <div class="text-6xl mb-10">💎</div>
+                    <h3 class="text-2xl font-black mb-4">Click AI Access</h3>
+                    <p class="text-[#86868b] font-medium leading-relaxed">Cơ hội nhận 50 tài khoản Click AI Workspace dành cho học viên đăng ký sớm nhất.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FINAL CTA -->
-    <section class="py-40 px-6 bg-black text-center text-white relative overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-full bg-blue-600/10 blur-[150px] rounded-full"></div>
-        </div>
-        
-        <div class="relative z-10 max-w-4xl mx-auto space-y-10 reveal">
-            <h2 class="text-5xl md:text-7xl font-extrabold apple-gradient tracking-tight">Cơ Hội Đột Phá Đang Chờ Bạn</h2>
-            <p class="text-xl md:text-2xl text-[#86868b] font-medium">Đừng đứng ngoài cuộc cách mạng AI. Hãy trở thành người dẫn đầu.</p>
-            <div class="flex flex-col items-center gap-8">
-                <button onclick="openModal()" class="bg-[#0071e3] hover:bg-[#0077ed] text-white px-12 py-5 rounded-full text-[21px] font-bold transition-all transform hover:scale-105 shadow-2xl shadow-blue-500/40">
-                    Đăng ký tham gia ngay
+    <section class="section-padding bg-white px-6 text-center border-t border-black/5">
+        <div class="max-w-5xl mx-auto reveal">
+            <h2 class="text-6xl md:text-[100px] font-black tracking-tighter mb-12 apple-header-gradient">Think Different.<br>Build Smart.</h2>
+            <p class="text-2xl md:text-3xl text-[#86868b] font-medium mb-16 px-4">Hãy là người dẫn đầu trong kỷ nguyên trí tuệ nhân tạo. Đừng để bị bỏ lại phía sau.</p>
+            <div class="flex flex-col items-center gap-10">
+                <button onclick="openModal()" class="apple-button px-16 py-6 text-[22px] font-black shadow-2xl">
+                    Đăng ký giữ chỗ miễn phí
                 </button>
-                <p class="text-[#86868b] font-medium">Zalo hỗ trợ: 096.196.1673</p>
+                <div class="space-y-3">
+                    <p class="text-xl font-black text-[#1d1d1f]">05/01 – 07/01 | Online qua Zoom</p>
+                    <p class="text-[#86868b] font-bold tracking-widest uppercase text-sm">Chỉ còn 15 suất ưu đãi cuối cùng</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-black py-16 px-6 border-t border-white/10 text-center text-[#86868b] text-sm">
-        <div class="max-w-7xl mx-auto space-y-8">
-            <div class="flex items-center justify-center gap-2 text-white">
-                <div class="w-4 h-4 bg-white rounded-sm rotate-45"></div>
-                <span class="font-bold tracking-tight">AI SOLOPRENEUR</span>
+    <footer class="py-24 px-6 bg-white border-t border-black/5">
+        <div class="max-w-7xl mx-auto flex flex-col items-center gap-14 text-[#86868b]">
+            <div class="flex items-center gap-2 text-black">
+                <div class="w-5 h-5 bg-black rounded-sm rotate-45"></div>
+                <span class="font-black tracking-tighter text-lg uppercase">AI SOLOPRENEUR</span>
             </div>
-            <p>© 2024 AI Solopreneur. Tất cả bản quyền được bảo lưu.</p>
-            <div class="flex justify-center gap-8">
-                <a href="#" class="hover:text-white transition-colors">Điều khoản</a>
-                <a href="#" class="hover:text-white transition-colors">Bảo mật</a>
-                <a href="#" class="hover:text-white transition-colors">Liên hệ</a>
+            
+            <nav class="flex flex-wrap justify-center gap-12 text-[12px] font-bold uppercase tracking-[0.2em] text-black/40">
+                <a href="#hero" class="hover:text-black transition-colors">Trang chủ</a>
+                <a href="#roadmap" class="hover:text-black transition-colors">Lộ trình</a>
+                <a href="#speakers" class="hover:text-black transition-colors">Chuyên gia</a>
+                <a href="#bonuses" class="hover:text-black transition-colors">Đặc quyền</a>
+            </nav>
+
+            <div class="text-center space-y-4">
+                <p class="text-[13px] font-medium">© 2024 AI Solopreneur. Master Technology, Build Freedom.</p>
+                <p class="text-[12px] opacity-60">Zalo Hotline: 096.196.1673</p>
             </div>
         </div>
     </footer>
 
     <!-- REGISTRATION MODAL -->
     <div id="modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-6">
-        <div class="absolute inset-0 modal-backdrop" onclick="closeModal()"></div>
-        <div class="relative bg-[#1d1d1f] border border-white/10 w-full max-w-md rounded-[40px] p-8 md:p-10 shadow-2xl transform scale-95 transition-all duration-300" id="modal-content">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-[#86868b] hover:text-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        <div class="absolute inset-0 bg-white/40 backdrop-blur-xl" onclick="closeModal()"></div>
+        <div class="relative bg-white/90 border border-black/5 w-full max-w-xl rounded-[56px] p-12 md:p-16 shadow-[0_40px_120px_rgba(0,0,0,0.15)] transform scale-95 opacity-0 transition-all duration-500" id="modal-content">
+            <button onclick="closeModal()" class="absolute top-10 right-10 text-[#86868b] hover:text-black transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
 
-            <div class="text-center space-y-4 mb-8">
-                <h2 class="text-3xl font-bold">Đăng ký ngay</h2>
-                <p class="text-[#86868b] text-sm">Điền thông tin để nhận link tham gia và tài liệu.</p>
+            <div class="text-center space-y-6 mb-12">
+                <h2 class="text-4xl font-black tracking-tight">Sẵn sàng để đột phá?</h2>
+                <p class="text-[#86868b] text-lg font-medium px-4">Thông tin của bạn được bảo mật tuyệt đối. Chúng tôi sẽ gửi xác nhận qua Email.</p>
             </div>
 
-            <form id="regForm" class="space-y-4">
-                <div class="space-y-1">
-                    <label class="text-[11px] font-bold text-[#86868b] uppercase tracking-wider pl-1">Họ và Tên</label>
-                    <input type="text" name="name" required placeholder="Nguyễn Văn A" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3.5 text-white outline-none focus:border-blue-500 transition-all">
+            <form id="regForm" class="space-y-8">
+                <div class="space-y-2">
+                    <label class="text-[12px] font-black text-black uppercase tracking-[0.2em] ml-4">Họ tên đầy đủ</label>
+                    <input type="text" name="name" required placeholder="Họ và Tên" class="w-full bg-[#f5f5f7] border border-transparent rounded-[24px] px-8 py-5 text-black outline-none focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all text-lg font-medium">
                 </div>
-                <div class="space-y-1">
-                    <label class="text-[11px] font-bold text-[#86868b] uppercase tracking-wider pl-1">Email</label>
-                    <input type="email" name="email" required placeholder="example@gmail.com" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3.5 text-white outline-none focus:border-blue-500 transition-all">
+                <div class="space-y-2">
+                    <label class="text-[12px] font-black text-black uppercase tracking-[0.2em] ml-4">Email của bạn</label>
+                    <input type="email" name="email" required placeholder="email@example.com" class="w-full bg-[#f5f5f7] border border-transparent rounded-[24px] px-8 py-5 text-black outline-none focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all text-lg font-medium">
                 </div>
-                <div class="space-y-1">
-                    <label class="text-[11px] font-bold text-[#86868b] uppercase tracking-wider pl-1">Số điện thoại</label>
-                    <input type="tel" name="phone" required placeholder="09xxxxxxxx" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3.5 text-white outline-none focus:border-blue-500 transition-all">
+                <div class="space-y-2">
+                    <label class="text-[12px] font-black text-black uppercase tracking-[0.2em] ml-4">Số điện thoại</label>
+                    <input type="tel" name="phone" required placeholder="09xx xxx xxx" class="w-full bg-[#f5f5f7] border border-transparent rounded-[24px] px-8 py-5 text-black outline-none focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all text-lg font-medium">
                 </div>
 
-                <div id="form-message" class="hidden p-4 rounded-2xl text-center text-sm font-medium"></div>
+                <div id="form-message" class="hidden p-5 rounded-[24px] text-center text-sm font-bold"></div>
 
-                <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-bold text-lg transition-all mt-4 flex items-center justify-center gap-3">
-                    Xác nhận đăng ký
+                <button type="submit" id="submitBtn" class="w-full bg-black text-white py-6 rounded-[24px] font-black text-xl transition-all transform active:scale-[0.97] shadow-2xl mt-4">
+                    Hoàn tất đăng ký
                 </button>
             </form>
 
-            <p class="text-[11px] text-[#86868b] text-center mt-6">Sau khi đăng ký, bạn sẽ được mời vào Nhóm Zalo Kín để nhận link Zoom và tài liệu học tập.</p>
+            <p class="text-[12px] text-[#86868b] text-center mt-10 font-medium px-6">Sau khi đăng ký, bạn sẽ nhận được link tham gia Nhóm Zalo Kín.</p>
         </div>
     </div>
 
@@ -415,10 +403,12 @@
         // Scroll Management
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
+            if (window.scrollY > 40) {
                 nav.classList.add('blur-nav');
+                nav.classList.remove('bg-white/0');
             } else {
                 nav.classList.remove('blur-nav');
+                nav.classList.add('bg-white/0');
             }
             
             // Reveal on scroll
@@ -426,7 +416,7 @@
             reveals.forEach(el => {
                 const windowHeight = window.innerHeight;
                 const revealTop = el.getBoundingClientRect().top;
-                if (revealTop < windowHeight - 100) {
+                if (revealTop < windowHeight - 80) {
                     el.classList.add('active');
                 }
             });
@@ -438,8 +428,8 @@
             const content = document.getElementById('modal-content');
             modal.classList.remove('hidden');
             setTimeout(() => {
-                content.classList.remove('scale-95');
-                content.classList.add('scale-100');
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
             }, 10);
             document.body.style.overflow = 'hidden';
         }
@@ -447,12 +437,12 @@
         function closeModal() {
             const modal = document.getElementById('modal');
             const content = document.getElementById('modal-content');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
             setTimeout(() => {
                 modal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
-            }, 200);
+            }, 500);
         }
 
         // Form Submission Logic
@@ -464,22 +454,15 @@
             const btn = document.getElementById('submitBtn');
             const msg = document.getElementById('form-message');
             const formData = new FormData(e.target);
-            
-            // Basic validation
-            const phone = formData.get('phone');
-            if (!/^(0[3|5|7|8|9|1])[0-9]{8,9}$/.test(phone)) {
-                showMessage('Số điện thoại không đúng định dạng VN.', 'error');
-                return;
-            }
 
             btn.disabled = true;
-            btn.innerHTML = '<svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Đang lưu dữ liệu...';
+            btn.innerText = 'Đang xác thực thông tin...';
 
             const payload = {
                 timestamp: new Date().toLocaleString('vi-VN'),
                 name: formData.get('name'),
                 email: formData.get('email'),
-                phone: phone
+                phone: formData.get('phone')
             };
 
             try {
@@ -489,31 +472,23 @@
                     body: JSON.stringify(payload)
                 });
                 
-                showMessage('Đăng ký thành công! Đang tới nhóm Zalo...', 'success');
+                msg.innerText = 'Đăng ký thành công! Đang chuyển hướng đến Zalo...';
+                msg.classList.remove('hidden');
+                msg.classList.add('bg-green-50', 'text-green-600', 'border', 'border-green-100');
+                
                 setTimeout(() => {
                     window.location.href = ZALO_URL;
                 }, 1500);
-
             } catch (err) {
-                showMessage('Có lỗi xảy ra. Hãy liên hệ hotline hỗ trợ.', 'error');
+                msg.innerText = 'Có lỗi xảy ra. Vui lòng thử lại sau hoặc liên hệ Hotline.';
+                msg.classList.remove('hidden');
+                msg.classList.add('bg-red-50', 'text-red-500', 'border', 'border-red-100');
                 btn.disabled = false;
-                btn.innerText = 'Xác nhận đăng ký';
+                btn.innerText = 'Hoàn tất đăng ký';
             }
         });
 
-        function showMessage(text, type) {
-            const msg = document.getElementById('form-message');
-            msg.innerText = text;
-            msg.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'bg-green-500/10', 'text-green-400');
-            if (type === 'error') {
-                msg.classList.add('bg-red-500/10', 'text-red-400');
-            } else {
-                msg.classList.add('bg-green-500/10', 'text-green-400');
-            }
-            msg.classList.remove('hidden');
-        }
-
-        // Trigger first reveal check
+        // Trigger initial check
         window.dispatchEvent(new Event('scroll'));
     </script>
 </body>
