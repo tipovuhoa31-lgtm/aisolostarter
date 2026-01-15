@@ -1,20 +1,28 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# AI Solopreneur Landing Page
 
-# Run and deploy your AI Studio app
+Landing page cao cấp, tối giản theo phong cách Apple dành cho chương trình đào tạo AI Solopreneur.
 
-This contains everything you need to run your app locally.
+## Đặc điểm kỹ thuật
+- **Kiến trúc**: Static Site (Single-file HTML).
+- **Công nghệ**: Tailwind CSS (CDN), Vanilla JavaScript.
+- **Tính năng**:
+    - Responsive 100% (Mobile/Tablet/Desktop).
+    - Hiệu ứng cuộn mượt mà (Reveal on Scroll).
+    - Tích hợp Google Sheets (thông qua Google Apps Script).
+    - Chuyển hướng Zalo Group tự động sau khi đăng ký.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1rS7G5ag27edSL0bEhNqFbCoNIyfNXUrW
+## Hướng dẫn Deploy lên Vercel/GitHub Pages
+1. **GitHub**: Upload toàn bộ nội dung repo lên một repository mới.
+2. **Vercel**:
+    - Import repository.
+    - **Framework Preset**: Chọn `Other` (vì không có build step).
+    - **Build Command**: Để trống.
+    - **Output Directory**: Để mặc định (gốc).
+    - Nhấn **Deploy**.
+3. **Kết quả**: Trang web sẽ hiển thị ngay lập tức từ file `index.html`.
 
-## Run Locally
+## Cấu hình Google Sheets
+Trong file `index.html`, tìm biến `SCRIPT_URL` và thay thế bằng URL Web App từ Google Apps Script của bạn để lưu thông tin đăng ký.
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+© 2024 AI Solopreneur.
